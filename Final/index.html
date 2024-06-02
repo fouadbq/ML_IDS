@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Intrusion Detection Dashboard</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Intrusion Detection Dashboard</h1>
+      <div id="chart"></div>
+      <script>
+        var data = [{
+          x: [{{
+             x: [{{ predictions|tojson }}],
+             type: 'histogram',
+           }];
+
+           var layout = {
+             title: 'Predicted Intrusion Types',
+             xaxis: {
+               title: 'Intrusion Type',
+             },
+             yaxis: {
+               title: 'Count',
+             }
+           };
+
+           Plotly.newPlot('chart', data, layout);
+         </script>
+       </div>
+     </body>
+   </html>
